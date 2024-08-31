@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import './App.css'; 
 
 export default function(){
   return(
@@ -10,7 +11,7 @@ function Counter(){
   return(
     <div>
       <title> Counter  App </title>
-      <h1 style={{textAlign: "center"}}> Counter </h1>
+      <h1 id='title'> Counter </h1>
       <CounterBox/>
     </div>
   )
@@ -20,7 +21,7 @@ function CounterBox(){
   const [count, setCount] = useState(0);
 
   return(
-    <div style={{display: "flex"}}>
+    <div className='counterBox'>
       <CounterButtons count={count} setCount={setCount}/>
       <CustomAdder count={count} setCount={setCount}/>
     </div>
@@ -34,14 +35,15 @@ function CounterButtons({count, setCount}){
   }
 
   return(
-    <form>
+    <form className='functionality' id='counterButtons'>
       <button type='button' onClick={() => HandleClick(-10)}>-10</button>
       <button type='button' onClick={() => HandleClick(-1)}>-1</button>
 
-      <h2>{count}</h2>
+      <h2 id='counter'>{count}</h2>
 
-      <button type='button' onClick={() => HandleClick(+10)}>+10</button>
       <button type='button' onClick={() => HandleClick(+1)}>+1</button>
+      <button type='button' onClick={() => HandleClick(+10)}>+10</button>
+      
     </form>
   )
 
@@ -70,7 +72,7 @@ function CustomAdder({count, setCount}){
   }
 
   return(
-    <form>
+    <form className='functionality' id='customAdder'>
       <h4>Add: </h4>
       <input onChange={handleInputChange} onKeyDown={handleKeyDown} placeholder="..."></input>
     </form>
